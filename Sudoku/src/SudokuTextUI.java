@@ -40,7 +40,6 @@ public class SudokuTextUI implements ModelListener {
 						System.out.print("Enter the board: ");
 						String board = s.next();
 						newBoard(board);
-						printBoard(2);
 						break;
 				case 2: resetBoard();
 						break;
