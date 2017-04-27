@@ -8,7 +8,6 @@
 public class SudokuModel implements ViewListener {
 	private ModelListener modelListener;
 	private Node[][] board;
-	private boolean solved;
 	/**
 	 * Constructor.
 	 */
@@ -51,7 +50,7 @@ public class SudokuModel implements ViewListener {
 	 * Find a solution to the board, if it exists.
 	 */
 	public void solve() {
-		solved = checkSolved();
+		boolean solved = checkSolved();
 		if (solved) {
 			solve(solved);
 		} else {
