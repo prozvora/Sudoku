@@ -155,6 +155,19 @@ public class SudokuGUI implements ModelListener {
 		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		
 		//listeners
+		newBoardDialog.addWindowListener(new java.awt.event.WindowAdapter() {
+			/**
+			 * This listener ignores the new board and closes the dialog.
+			 */
+		    public void windowClosing(java.awt.event.WindowEvent windowEvent) {
+		    	for (int i = 0; i < 9; i++) {
+    				for (int j = 0; j < 9; j++) {
+    					newBoardText[i][j].setText("");
+    				}
+    			}
+            	newBoardDialog.setVisible(false);
+		    }
+		});
 		frame.addWindowListener(new java.awt.event.WindowAdapter() {
 			/**
 			 * This listener ensures that both the model and view are closed.
