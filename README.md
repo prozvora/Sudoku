@@ -5,11 +5,14 @@ A 9x9 Sudoku solver which uses a backtracking approach
 
 **Input**
   ```
-  java Sudoku
+  java Sudoku <viewType>
   ```
- The Sudoku program will display program functions in standard output for the user.
+  \<viewType\> is a choice of UI. Valid choices are "text" and "gui".
+  
+ For text, the Sudoku program will display program functions in standard output for the user.
+ For gui, the Sudoku program will display program functions in a graphical interface.
  
- **Example Run**
+ **Example Run - text**
  ```
  Choose an option:
 1. Supply a new Sudoku board.
