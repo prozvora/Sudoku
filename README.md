@@ -5,13 +5,36 @@ A 9x9 Sudoku solver which uses a backtracking approach
 
 **Input**
   ```
-  java Sudoku
+  java Sudoku <viewType>
   ```
- The Sudoku program will display program functions in standard output for the user.
+  \<viewType\> is a choice of UI. Valid choices are "text" and "gui".
+  
+ For text, the Sudoku program will display program functions in standard output for the user.
+ For gui, the Sudoku program will display program functions in a graphical interface.
  
- **Example Run**
+ **Example Run - gui**
  ```
- Choose an option:
+ java Sudoku gui
+ ```
+ The first screen will have a blank board with the options to the right. Select "Supply New Board".
+ ![Initial Screen](https://github.com/prozvora/Sudoku/blob/master/screen01.png)
+ 
+ A dialog will pop up, enabling the user to enter a new board. Enter the board and select "OK" to confirm, or "Cancel".
+ ![New Board Dialog](https://github.com/prozvora/Sudoku/blob/master/screen03.png)
+ 
+ The dialog will disappear, and the screen will be populated with the board. Select "Solve Board".
+ ![Board Populated](https://github.com/prozvora/Sudoku/blob/master/screen04.png)
+ 
+ The screen will now display the solved board.
+ ![Solved Board](https://github.com/prozvora/Sudoku/blob/master/screen05.png)
+ 
+ Selecting "Solve Board" again will result in a search for additional solutions.
+ ![Additional Solve Attempt](https://github.com/prozvora/Sudoku/blob/master/screen06.png)
+ 
+ **Example Run - text**
+ ```
+java Sudoku text
+Choose an option:
 1. Supply a new Sudoku board.
 2. Reset the current board to its initial state.
 3. Solve the board and display its solution, or find additional solutions.
