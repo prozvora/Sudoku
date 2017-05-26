@@ -325,7 +325,7 @@ public class SudokuGUI implements ModelListener {
 				}
 			}
 			messages.setText(
-					"Solve this board, or search for additional solutions.");
+					"Choose an option. Pressing \"Solve Board\" after solving will search for additional solutions.");
 			messages.setForeground(Color.black);
 			frame.repaint();
 		}
