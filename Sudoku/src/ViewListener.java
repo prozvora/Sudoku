@@ -2,13 +2,13 @@
  * ViewListener defines the methods needed for communication from model to UI.
  * 
  * @author Pavel Rozvora
- * @version 2017-04-27
+ * @version 2017-05-26
  */
 public interface ViewListener {
 	/**
 	 * Build a new Sudoku board.
 	 * 
-	 * @param input The Sudoku board.
+	 * @param input the Sudoku board.
 	 */
 	public void newBoard(String input);
 	/**
@@ -20,9 +20,11 @@ public interface ViewListener {
 	 */
 	public void solve();
 	/**
-	 * Output the board to standard output.
+	 * Give the board's string representation.
+	 * 
+	 * @return the String representation of the board
 	 */
-	public void printBoard();
+	public String boardToString();
 	/**
 	 * Quit the program.
 	 */

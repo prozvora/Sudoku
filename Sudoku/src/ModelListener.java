@@ -2,7 +2,7 @@
  * ModelListener defines the methods needed for communication from UI to model.
  * 
  * @author Pavel Rozvora
- * @version 2017-04-27
+ * @version 2017-05-26
  */
 public interface ModelListener {
 	/**
@@ -12,7 +12,7 @@ public interface ModelListener {
 	 */
 	public void newBoard(String input);
 	/**
-	 * Reset the board to its initial supplied state
+	 * Reset the board to its initial supplied state.
 	 */
 	public void resetBoard();
 	/**
@@ -20,14 +20,14 @@ public interface ModelListener {
 	 */
 	public void solve();
 	/**
-	 * Output the solved board or a message if it has no solution.
+	 * Display the solved board or a message if it has no solution.
 	 * If status == 0, the board has no solution.
 	 * If status == 1, the board has no additional solutions.
 	 * If status == 2, the board has been solved.
 	 * 
 	 * @param status A value which indicates the solved status of the board
 	 */
-	public void printBoard(int status);
+	public void displayBoard(int status);
 	/**
 	 * Quit the program.
 	 */

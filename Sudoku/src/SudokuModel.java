@@ -3,7 +3,7 @@
  * supplied board.
  * 
  * @author Pavel Rozvora
- * @version 2017-04-27
+ * @version 2017-05-26
  */
 public class SudokuModel implements ViewListener {
 	private ModelListener modelListener;
@@ -60,7 +60,7 @@ public class SudokuModel implements ViewListener {
 					if (!board[i][j].getVar() && !checkValid(i, j)) {
 						//impossible supplied board
 						impossible = true;
-						modelListener.printBoard(0);
+						modelListener.displayBoard(0);
 						break;
 					}
 				}
@@ -91,16 +91,16 @@ public class SudokuModel implements ViewListener {
 			if (r < 0) {
 				//board has no additional solutions or was impossible
 				if (!solved) {
-					modelListener.printBoard(0);
+					modelListener.displayBoard(0);
 				} else {
-					modelListener.printBoard(1);
+					modelListener.displayBoard(1);
 				}
 				break;
 			}
 			if (r > 8) {
 				//board is solved
 				solved = true;
-				modelListener.printBoard(2);
+				modelListener.displayBoard(2);
 				break;
 			}
 			if (!board[r][c].getVar()) {
@@ -183,21 +183,19 @@ public class SudokuModel implements ViewListener {
 		return true;
 	}
 	/**
-	 * Output the board to standard output.
+	 * Give the board's string representation.
+	 * 
+	 * @return the String representation of the board
 	 */
-	public void printBoard() {
-		System.out.println();
+	public String boardToString() {
+		String boardString = "";
 		for (int i = 0; i < 9; i++) {
 			for (int j = 0; j < 9; j++) {
-				if (board[i][j].getVal() == 0) {
-					System.out.print("  ");
-				} else {
-					System.out.print(board[i][j].getVal() + " ");
-				}
+				String temp = Integer.toString(board[i][j].getVal());
+				boardString = boardString.concat(temp);
 			}
-			System.out.println();
 		}
-		System.out.println();
+		return boardString;
 	}
 	/**
 	 * Reset the board to its initial supplied state

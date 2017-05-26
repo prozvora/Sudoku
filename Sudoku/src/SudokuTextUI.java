@@ -3,7 +3,7 @@ import java.util.Scanner;
  * SudokuTextUI contains the UI for the Sudoku program.
  * 
  * @author Pavel Rozvora
- * @version 2017-04-27
+ * @version 2017-05-26
  */
 public class SudokuTextUI implements ModelListener {
 	private ViewListener viewListener;
@@ -29,8 +29,11 @@ public class SudokuTextUI implements ModelListener {
 		while (true) {
 			System.out.println("Choose an option:");
 			System.out.println("1. Supply a new Sudoku board.");
-			System.out.println("2. Reset the current board to its initial state.");
-			System.out.println("3. Solve the board and display its solution, or find additional solutions.");
+			System.out.println(
+					"2. Reset the current board to its initial state.");
+			System.out.println(
+					"3. Solve the board and display its solution,\n"
+					+ "   or find additional solutions.");
 			System.out.println("4. Quit program.");
 			System.out.print("Enter your selction (1-4): ");
 			try {
@@ -68,7 +71,7 @@ public class SudokuTextUI implements ModelListener {
 		viewListener.newBoard(board);
 	}
 	/**
-	 * Reset the board to its initial supplied state
+	 * Reset the board to its initial supplied state.
 	 */
 	public void resetBoard() {
 		viewListener.resetBoard();
@@ -80,20 +83,32 @@ public class SudokuTextUI implements ModelListener {
 		viewListener.solve();
 	}
 	/**
-	 * Output the solved board or a message if it has no solution.
+	 * Display the solved board or a message if it has no solution.
 	 * If status == 0, the board has no solution.
 	 * If status == 1, the board has no additional solutions.
 	 * If status == 2, the board has been solved.
 	 * 
 	 * @param status A value which indicates the solved status of the board
 	 */
-	public void printBoard(int status) {
+	public void displayBoard(int status) {
 		if (status == 0) {
 			System.out.println("\nThis board has no possible solution.\n");
 		} else if (status == 1) {
 			System.out.println("\nThis board has no additional solutions.\n");
 		} else if (status == 2) {
-			viewListener.printBoard();
+			String boardString = viewListener.boardToString();
+			System.out.println();
+			for (int i = 0; i < 9; i++) {
+				for (int j = 0; j < 9; j++) {
+					if (boardString.charAt(9*i+j) == '0') {
+						System.out.print("  ");
+					} else {
+						System.out.print(boardString.charAt(9*i+j) + " ");
+					}
+				}
+				System.out.println();
+			}
+			System.out.println();
 		}
 	}
 	/**
